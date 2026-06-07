@@ -1,13 +1,19 @@
+<p align="center">
+  <img src="TeamCode\src\main\java\org\firstinspires\ftc\teamcode\assets\swervologo.jpg" alt="SWERVO 26256 Logo" width="240" height="auto">
+</p>
+
 # 🦾 SWERVO Team 26256 — 2026-2027 Season Codebase
 
 <p align="left">
   <img src="https://img.shields.io/badge/Platform-FTC%20SDK%20v10.x-blue?style=for-the-badge&logo=android" alt="Platform">
   <img src="https://img.shields.io/badge/Language-Java%2017-orange?style=for-the-badge&logo=openjdk&logoColor=white" alt="Language">
+  
   <a href="https://swervo26256.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/Website-Vercel%20Live-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Website">
+    <img src="https://img.shields.io/badge/Website--Vercel%20Live-000000?style=for-the-badge&logo=vercel&logoColor=white&labelColor=000000" alt="Website">
   </a>
+  
   <a href="https://www.instagram.com/ftc26256/" target="_blank">
-    <img src="https://img.shields.io/badge/Instagram-@ftc26256-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
+    <img src="https://img.shields.io/badge/Instagram--@ftc26256-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=E4405F" alt="Instagram">
   </a>
 </p>
 
@@ -30,66 +36,11 @@ To ensure development efficiency, rapid prototyping, and clean version control, 
 
 ## 🚦 DevOps: Git Branching Protocol
 
-Our team utilizes a strict branching layout to ensure that untested code never compromises the physical robot during high-velocity lab testing blocks.
-
-```text
-  [feature/intake-logic] ----●-----●-----\
-                                          \  (Pull Request & Peer Review)
-  [master] --------------------------------●----------------------------●--> (Stable/Flashed)
-                                          /
-  [hotfix/sensor-patch] -----------------●/
-
-
-  ```python
-# Define the content of the README.md file
-readme_content = """# 🦾 SWERVO Team 26256 — 2026-2027 Season Codebase
-
-<p align="left">
-  <img src="https://img.shields.io/badge/Platform-FTC%20SDK%20v10.x-blue?style=for-the-badge&logo=android" alt="Platform">
-  <img src="https://img.shields.io/badge/Language-Java%2017-orange?style=for-the-badge&logo=openjdk&logoColor=white" alt="Language">
-  <a href="https://swervo26256.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/Website-Vercel%20Live-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Website">
-  </a>
-  <a href="https://www.instagram.com/ftc26256/" target="_blank">
-    <img src="https://img.shields.io/badge/Instagram-@ftc26256-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
-  </a>
-</p>
-
-Welcome to the official repository for FIRST Tech Challenge (FTC) Team 26256 (SWERVO) based out of Mississauga, Ontario. This repository manages our completely modular software architecture, sensor arrays, computer vision logic, and autonomous routines.
-
----
-
-## 📊 System Architecture & Departmental Matrix
-
-To ensure development efficiency, rapid prototyping, and clean version control, our operations are managed via a rigid 4-department matrix. This structure isolates tasks to eliminate overlapping repository drops during remote sprints:
-
-| CAD Design | Mechanical Build | Autonomous Software | Business & Operations |
-| :--- | :--- | :--- | :--- |
-| • Lead CAD Designer | • Build Track Lead | • Software Architecture Lead | • Team Captain / Exec Director |
-| • Mechanism Modeling | • Chassis Fabricator | • Lead Systems Developer | • Director of Business & Media |
-| • Systems Integration | • Assembly Technician | • Java Controls Engineer | |
-| • Vision Layout Prep | • Hardware Prototypers | • Vision Optimization Track | |
-
----
-
-## 🚦 DevOps: Git Branching Protocol
-
-Our team utilizes a strict branching layout to ensure that untested code never compromises the physical robot during high-velocity lab testing blocks.
-
-
-```
-
-```text
-File README.md created successfully.
-
-```text
   [feature/intake-logic] ----●-----●-----\\
                                           \\  (Pull Request & Peer Review)
   [master] --------------------------------●----------------------------●--> (Stable/Flashed)
                                           /
   [hotfix/sensor-patch] -----------------●/ 
-
-```
 
 ### 1. The Core Branch: `master`
 
@@ -138,18 +89,3 @@ adb connect 192.168.43.1:5555
 ```
 
 3. Once connected, deploy wirelessly using the top menu toolbar.
-"""
-
-# Write content to README.md file
-
-with open("README.md", "w", encoding="utf-8") as file:
-file.write(readme_content)
-print("File README.md created successfully.")
-
-```
-Your Markdown file is ready
-[file-tag: code-generated-file-0-1780863957087618190]
-
-I have compiled the full content we discussed into a clean, well-formatted, and copy-paste-ready `README.md` file. The Markdown formatting blocks have been properly isolated and structured so it displays perfectly on GitHub. You can download it directly via the file tag link above!
-
-```
