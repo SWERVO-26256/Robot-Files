@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 /**
  * Mecanum Drivetrain Subsystem for FTC Team 26256 (SWERVO)
  */
-public class MecaniumDrive {
+public class MecanumDrive {
 
     private DcMotorEx frontLeft;
     private DcMotorEx frontRight;

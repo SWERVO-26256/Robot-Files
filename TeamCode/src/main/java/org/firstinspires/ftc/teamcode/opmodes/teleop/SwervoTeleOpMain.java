@@ -1,7 +1,14 @@
+package org.firstinspires.ftc.teamcode.opmodes.teleop;
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+
+import org.firstinspires.ftc.teamcode.subsystems.MecanumDrive;
+
 @TeleOp(name="Swervo TeleOp Main", group="TeleOp")
 public class SwervoTeleOpMain extends LinearOpMode {
 
-    private final MecaniumDrive drive = new MecaniumDrive();
+    private final MecanumDrive drive = new MecanumDrive();
 
     @Override
     public void runOpMode() {
