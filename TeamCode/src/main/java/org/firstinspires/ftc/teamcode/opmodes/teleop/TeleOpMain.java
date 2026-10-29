@@ -58,14 +58,14 @@ public class TeleOpMain extends LinearOpMode {
 
 
             // =========================================================
-            // 2. FLYWHEEL TOGGLES (A & B BUTTONS)
+            // 2. FLYWHEEL CONTROLS (SEPARATE FROM INTAKE)
             // =========================================================
-            // Pollen Wheel Toggle (A Button)
-            boolean aButtonCurr = gamepad1.a;
-            if (aButtonCurr && !aButtonPrev) {
+            // Pollen Wheel Toggle (X Button)
+            boolean xButtonCurr = gamepad1.x;
+            if (xButtonCurr && !xButtonPrev) {
                 pollenToggled = !pollenToggled;
             }
-            aButtonPrev = aButtonCurr;
+            xButtonPrev = xButtonCurr;
 
             if (pollenToggled) {
                 robot.pollenMotor.setPower(0.8); // Adjust target power as needed
@@ -88,18 +88,16 @@ public class TeleOpMain extends LinearOpMode {
 
 
             // =========================================================
-            // 3. INTAKE TOGGLE (Assigned to Left Trigger threshold or custom button)
+            // 3. INTAKE C-SERVO HOLD TO RUN (A BUTTON)
             // =========================================================
-            boolean intakeTriggerPressed = gamepad1.left_trigger > 0.3;
-            if (intakeTriggerPressed && !xButtonPrev) {
-                intakeToggled = !intakeToggled;
-            }
-            xButtonPrev = intakeTriggerPressed;
+            // Separate section: A directly controls the intake servo while held.
+            boolean aButtonCurr = gamepad1.a;
+            intakeToggled = aButtonCurr;
 
-            if (intakeToggled) {
-                robot.intakeMotor.setPower(1.0);
+            if (aButtonCurr) {
+                robot.intakeServo.setPower(1.0);
             } else {
-                robot.intakeMotor.setPower(0.0);
+                robot.intakeServo.setPower(0.0);
             }
 
 

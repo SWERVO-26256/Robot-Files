@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -29,6 +30,7 @@ public class RobotHardware {
     public static final String FLYWHEEL_MOTOR = "flywheelMotor";
 
     // Servos
+    public static final String INTAKE_SERVO = "intakeServo";
     public static final String INDEX_GATE = "indexGate";
     public static final String HOOD_ANGLE = "hoodServo";
 
@@ -51,6 +53,7 @@ public class RobotHardware {
     public DcMotorEx intakeMotor   = null;
     public DcMotorEx flywheelMotor = null;
 
+    public CRServo intakeServo = null;
     public Servo indexGate  = null;
     public Servo hoodServo  = null;
 
@@ -78,6 +81,7 @@ public class RobotHardware {
         // Initialize Mechanism Motors
         intakeMotor   = hwMap.get(DcMotorEx.class, INTAKE_MOTOR_NAME);
         flywheelMotor = hwMap.get(DcMotorEx.class, FLYWHEEL_MOTOR_NAME);
+        intakeServo = hwMap.get(CRServo.class, INTAKE_SERVO);
 
         // Configure Default Motor Behaviors (SWERVO Drive Train Direction)
         frontLeft.setDirection(DcMotor.Direction.REVERSE);
