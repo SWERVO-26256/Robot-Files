@@ -25,18 +25,19 @@ public class RobotHardware {
     public static final String BRmotor = "backRight";
 
     // Subsystem Motors
-    public static final String INTAKE   = "intakeMotor";
-    public static final String FLYWHEEL_MOTOR = "flywheelMotor";
+    public static final String INTAKE   = "intake";
+    public static final String NECTAR_FLYWHEEL= "nectarShooter";
+    public static final String POLLEN_FLYWHEEL= "pollenShooter"
 
     // Servos
-    public static final String INDEX_GATE = "indexGate";
-    public static final String HOOD_ANGLE = "hoodServo";
+    public static final String INDEXER = "indexGate";
+    public static final String FLOWERINTAKE = "fIntake"
 
     // Vision / Cameras
-    public static final String WEBCAM         = "camera";
+    public static final String WEBCAM = "camera";
 
     // Odometry / Pinpoint Computer Configuration Name
-    public static final String PINPOINT       = "pinpoint";
+    public static final String PINPOINT = "pinpoint";
 
 
     // ==========================================
