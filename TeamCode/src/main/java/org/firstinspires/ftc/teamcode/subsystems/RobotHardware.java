@@ -1,106 +1,54 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
-import com.qualcomm.robotcore.hardware.HardwareMap;
+import.com.qualcomm.robotcore.hardware.CRservo
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.Servo;
-import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-import org.firstinspires.ftc.teamcode.subsystems.PinpointSubsystem;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 /**
- * Centralized Hardware Class for FTC Team 26256 (SWERVO)
- * Defines all hardware configuration names and holds device instances.
+ * Minimal robot hardware map for the drivetrain-only build.
+ * Shooter and other mechanism wiring can be added later when needed.
  */
 public class RobotHardware {
 
-    // ==========================================
-    // REV CONFIGURATION NAME CONSTANTS
-    // (Must match names configured on the Driver Station)
-    // ==========================================
-    
-    // Drive Motors (Single Control Hub Setup)
+    // Drive motor configuration names
     public static final String FLmotor = "frontLeft";
     public static final String FRmotor = "frontRight";
     public static final String BLmotor = "backLeft";
     public static final String BRmotor = "backRight";
 
-    // Subsystem Motors
-    public static final String INTAKE   = "intake";
-    public static final String NECTAR_FLYWHEEL= "nectarShooter";
-    public static final String POLLEN_FLYWHEEL= "pollenShooter"
-
-    // Servos
-    public static final String INDEXER = "indexGate";
-    public static final String FLOWERINTAKE = "fIntake"
-
-    // Vision / Cameras
-    public static final String WEBCAM = "camera";
-
-    // Odometry / Pinpoint Computer Configuration Name
+    // Optional odometry setup for later autonomous work
     public static final String PINPOINT = "pinpoint";
+    public static final String PINPOINT_NAME = PINPOINT;
 
+    // Intake Spark mini
+    public static final String INTAKE = "intake"
+    public CRServorvo intakeMotor = null;
 
-    // ==========================================
-    // HARDWARE DEVICE INSTANCES
-    // ==========================================
-    
-    public DcMotorEx frontLeft  = null;
+    public DcMotorEx frontLeft = null;
     public DcMotorEx frontRight = null;
-    public DcMotorEx backLeft   = null;
-    public DcMotorEx backRight  = null;
+    public DcMotorEx backLeft = null;
+    public DcMotorEx backRight = null;
+    Intake_mo
 
-    public DcMotorEx intakeMotor   = null;
-    public DcMotorEx flywheelMotor = null;
-
-    public Servo indexGate  = null;
-    public Servo hoodServo  = null;
-
-    public WebcamName webcam = null;
-
-    // Pinpoint Subsystem Instance
+    public MecanumDrive driveSubsystem = null;
     public PinpointSubsystem pinpointSubsystem = null;
 
-    // Local HardwareMap reference
-    private HardwareMap hwMap = null;
-
-    /**
-     * Initialize all hardware components using the provided Driver Station HardwareMap.
-     * @param ahwMap The active HardwareMap from the running OpMode.
-     */
     public void init(HardwareMap ahwMap) {
-        hwMap = ahwMap;
+        frontLeft = ahwMap.get(DcMotorEx.class, FLmotor);
+        frontRight = ahwMap.get(DcMotorEx.class, FRmotor);
+        backLeft = ahwMap.get(DcMotorEx.class, BLmotor);
+        backRight = ahwMap.get(DcMotorEx.class, BRmotor);
 
-        // Initialize Drive Motors
-        frontLeft  = hwMap.get(DcMotorEx.class, FLmotor);
-        frontRight = hwMap.get(DcMotorEx.class, FRmotor);
-        backLeft   = hwMap.get(DcMotorEx.class, BLmotor);
-        backRight  = hwMap.get(DcMotorEx.class, BRmotor);
-
-        // Initialize Mechanism Motors
-        intakeMotor   = hwMap.get(DcMotorEx.class, INTAKE_MOTOR_NAME);
-        flywheelMotor = hwMap.get(DcMotorEx.class, FLYWHEEL_MOTOR_NAME);
-
-        // Configure Default Motor Behaviors (SWERVO Drive Train Direction)
         frontLeft.setDirection(DcMotor.Direction.REVERSE);
         backLeft.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.FORWARD);
         backRight.setDirection(DcMotor.Direction.FORWARD);
 
-        // Flywheel & Intake setup
-        flywheelMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        flywheelMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        driveSubsystem = new MecanumDrive();
+        driveSubsystem.init(ahwMap);
 
-        intakeMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        intakeMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-        // Initialize Servos
-        indexGate = hwMap.get(Servo.class, INDEX_GATE_SERVO_NAME);
-        hoodServo = hwMap.get(Servo.class, HOOD_ANGLE_SERVO_NAME);
-
-        // Initialize Vision Hardware
-        webcam = hwMap.get(WebcamName.class, WEBCAM_NAME);
-
-        // Initialize Pinpoint Odometry Subsystem
-        pinpointSubsystem = new PinpointSubsystem(hwMap);
+        // Keep this optional for future autonomy; no shooter logic is required here.
+        pinpointSubsystem = new PinpointSubsystem(ahwMap);
     }
 }
